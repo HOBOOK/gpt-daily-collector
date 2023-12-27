@@ -4,12 +4,12 @@ const nodemailer = require('nodemailer');
 
 // SMTP 서버 설정
 let transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", // 메일 서비스 제공자의 SMTP 서버 주소
+  host: process.env.SMTP_HOST, // 메일 서비스 제공자의 SMTP 서버 주소
   port: 587, // 통상적인 SMTP 포트
   secure: false, // true면 465 포트 사용, false면 다른 포트 사용
   auth: {
-    user: "vazilaboratory@gmail.com", // 이메일 전송을 위한 유저명 (이메일 주소)
-    pass: "lbpojbugmfthtgjl" // 이메일 전송을 위한 패스워드
+    user: process.env.SMTP_USER, // 이메일 전송을 위한 유저명 (이메일 주소)
+    pass: process.env.SMTP_PASS // 이메일 전송을 위한 패스워드
   }
 });
 
